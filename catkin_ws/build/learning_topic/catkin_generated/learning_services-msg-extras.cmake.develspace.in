@@ -1,0 +1,2 @@
+set(learning_services_MESSAGE_FILES "/Users/bingo/swork/ros_project/catkin_ws/src/learning_topic/msg/Person.msg")
+set(learning_services_SERVICE_FILES "")

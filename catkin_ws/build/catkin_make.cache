@@ -1,2 +1,2 @@
-learning1
+learning_service:learning_topic
 -DCATKIN_DEVEL_PREFIX=/Users/bingo/swork/ros_project/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/Users/bingo/swork/ros_project/catkin_ws/install -G Unix Makefiles
