@@ -1,0 +1,8 @@
+prefix=/Users/bingo/swork/ros_project/catkin_ws/devel
+
+Name: learning1
+Description: Description of learning1
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

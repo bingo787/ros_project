@@ -1,0 +1,5 @@
+*.o
+cmake-build-debug
+CMakeFiles
+install
+.DS_Store

@@ -1,0 +1,13 @@
+/Users/bingo/swork/ros_project/catkin_ws/install/_setup_util.py
+/Users/bingo/swork/ros_project/catkin_ws/install/env.sh
+/Users/bingo/swork/ros_project/catkin_ws/install/setup.bash
+/Users/bingo/swork/ros_project/catkin_ws/install/local_setup.bash
+/Users/bingo/swork/ros_project/catkin_ws/install/setup.sh
+/Users/bingo/swork/ros_project/catkin_ws/install/local_setup.sh
+/Users/bingo/swork/ros_project/catkin_ws/install/setup.zsh
+/Users/bingo/swork/ros_project/catkin_ws/install/local_setup.zsh
+/Users/bingo/swork/ros_project/catkin_ws/install/.rosinstall
+/Users/bingo/swork/ros_project/catkin_ws/install/lib/pkgconfig/learning1.pc
+/Users/bingo/swork/ros_project/catkin_ws/install/share/learning1/cmake/learning1Config.cmake
+/Users/bingo/swork/ros_project/catkin_ws/install/share/learning1/cmake/learning1Config-version.cmake
+/Users/bingo/swork/ros_project/catkin_ws/install/share/learning1/package.xml
