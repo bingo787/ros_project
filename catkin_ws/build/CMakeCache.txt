@@ -367,6 +367,12 @@ learning1_BINARY_DIR:STATIC=/Users/bingo/swork/ros_project/catkin_ws/build/learn
 learning1_SOURCE_DIR:STATIC=/Users/bingo/swork/ros_project/catkin_ws/src/learning1
 
 //Value Computed by CMake
+learning_parameters_BINARY_DIR:STATIC=/Users/bingo/swork/ros_project/catkin_ws/build/learning_parameters
+
+//Value Computed by CMake
+learning_parameters_SOURCE_DIR:STATIC=/Users/bingo/swork/ros_project/catkin_ws/src/learning_parameters
+
+//Value Computed by CMake
 learning_service_BINARY_DIR:STATIC=/Users/bingo/swork/ros_project/catkin_ws/build/learning_service
 
 //Value Computed by CMake
@@ -536,7 +542,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

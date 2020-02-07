@@ -56,6 +56,18 @@ CMAKE_BINARY_DIR = /Users/bingo/swork/ros_project/catkin_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -67,28 +79,15 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : test/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
+.PHONY : list_install_components/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -102,15 +101,17 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -123,17 +124,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,34 +168,124 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-learning_service/CMakeFiles/client_node.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/client_node.dir/rule
-.PHONY : learning_service/CMakeFiles/client_node.dir/rule
+learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/rule:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/rule
+.PHONY : learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-client_node: learning_service/CMakeFiles/client_node.dir/rule
+learning_service_generate_messages_eus: learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/rule
 
-.PHONY : client_node
+.PHONY : learning_service_generate_messages_eus
 
 # fast build rule for target.
-client_node/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/client_node.dir/build.make learning_service/CMakeFiles/client_node.dir/build
-.PHONY : client_node/fast
+learning_service_generate_messages_eus/fast:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/build.make learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/build
+.PHONY : learning_service_generate_messages_eus/fast
 
 # Convenience name for target.
-learning_service/CMakeFiles/learning_service_genpy.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_genpy.dir/rule
-.PHONY : learning_service/CMakeFiles/learning_service_genpy.dir/rule
+learning_service/CMakeFiles/learning_service_geneus.dir/rule:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_geneus.dir/rule
+.PHONY : learning_service/CMakeFiles/learning_service_geneus.dir/rule
 
 # Convenience name for target.
-learning_service_genpy: learning_service/CMakeFiles/learning_service_genpy.dir/rule
+learning_service_geneus: learning_service/CMakeFiles/learning_service_geneus.dir/rule
 
-.PHONY : learning_service_genpy
+.PHONY : learning_service_geneus
 
 # fast build rule for target.
-learning_service_genpy/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_genpy.dir/build.make learning_service/CMakeFiles/learning_service_genpy.dir/build
-.PHONY : learning_service_genpy/fast
+learning_service_geneus/fast:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_geneus.dir/build.make learning_service/CMakeFiles/learning_service_geneus.dir/build
+.PHONY : learning_service_geneus/fast
+
+# Convenience name for target.
+learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/rule:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/rule
+.PHONY : learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+learning_service_generate_messages_lisp: learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/rule
+
+.PHONY : learning_service_generate_messages_lisp
+
+# fast build rule for target.
+learning_service_generate_messages_lisp/fast:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/build.make learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/build
+.PHONY : learning_service_generate_messages_lisp/fast
+
+# Convenience name for target.
+learning_service/CMakeFiles/learning_service_gencpp.dir/rule:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_gencpp.dir/rule
+.PHONY : learning_service/CMakeFiles/learning_service_gencpp.dir/rule
+
+# Convenience name for target.
+learning_service_gencpp: learning_service/CMakeFiles/learning_service_gencpp.dir/rule
+
+.PHONY : learning_service_gencpp
+
+# fast build rule for target.
+learning_service_gencpp/fast:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_gencpp.dir/build.make learning_service/CMakeFiles/learning_service_gencpp.dir/build
+.PHONY : learning_service_gencpp/fast
+
+# Convenience name for target.
+learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/rule:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/rule
+.PHONY : learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+learning_service_generate_messages_cpp: learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/rule
+
+.PHONY : learning_service_generate_messages_cpp
+
+# fast build rule for target.
+learning_service_generate_messages_cpp/fast:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/build.make learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/build
+.PHONY : learning_service_generate_messages_cpp/fast
+
+# Convenience name for target.
+learning_service/CMakeFiles/learning_service_generate_messages.dir/rule:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_generate_messages.dir/rule
+.PHONY : learning_service/CMakeFiles/learning_service_generate_messages.dir/rule
+
+# Convenience name for target.
+learning_service_generate_messages: learning_service/CMakeFiles/learning_service_generate_messages.dir/rule
+
+.PHONY : learning_service_generate_messages
+
+# fast build rule for target.
+learning_service_generate_messages/fast:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_generate_messages.dir/build.make learning_service/CMakeFiles/learning_service_generate_messages.dir/build
+.PHONY : learning_service_generate_messages/fast
+
+# Convenience name for target.
+learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/rule:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/rule
+.PHONY : learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/rule
+
+# Convenience name for target.
+_learning_service_generate_messages_check_deps_TwoInts: learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/rule
+
+.PHONY : _learning_service_generate_messages_check_deps_TwoInts
+
+# fast build rule for target.
+_learning_service_generate_messages_check_deps_TwoInts/fast:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/build.make learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/build
+.PHONY : _learning_service_generate_messages_check_deps_TwoInts/fast
+
+# Convenience name for target.
+learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/rule:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/rule
+.PHONY : learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+learning_service_generate_messages_nodejs: learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/rule
+
+.PHONY : learning_service_generate_messages_nodejs
+
+# fast build rule for target.
+learning_service_generate_messages_nodejs/fast:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/build.make learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/build
+.PHONY : learning_service_generate_messages_nodejs/fast
 
 # Convenience name for target.
 learning_service/CMakeFiles/learning_service_generate_messages_py.dir/rule:
@@ -228,124 +318,19 @@ learning_service_genlisp/fast:
 .PHONY : learning_service_genlisp/fast
 
 # Convenience name for target.
-learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/rule
-.PHONY : learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/rule
+learning_service/CMakeFiles/learning_service_genpy.dir/rule:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_genpy.dir/rule
+.PHONY : learning_service/CMakeFiles/learning_service_genpy.dir/rule
 
 # Convenience name for target.
-learning_service_generate_messages_lisp: learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/rule
+learning_service_genpy: learning_service/CMakeFiles/learning_service_genpy.dir/rule
 
-.PHONY : learning_service_generate_messages_lisp
+.PHONY : learning_service_genpy
 
 # fast build rule for target.
-learning_service_generate_messages_lisp/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/build.make learning_service/CMakeFiles/learning_service_generate_messages_lisp.dir/build
-.PHONY : learning_service_generate_messages_lisp/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/learning_service_geneus.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_geneus.dir/rule
-.PHONY : learning_service/CMakeFiles/learning_service_geneus.dir/rule
-
-# Convenience name for target.
-learning_service_geneus: learning_service/CMakeFiles/learning_service_geneus.dir/rule
-
-.PHONY : learning_service_geneus
-
-# fast build rule for target.
-learning_service_geneus/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_geneus.dir/build.make learning_service/CMakeFiles/learning_service_geneus.dir/build
-.PHONY : learning_service_geneus/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/rule
-.PHONY : learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-learning_service_generate_messages_eus: learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/rule
-
-.PHONY : learning_service_generate_messages_eus
-
-# fast build rule for target.
-learning_service_generate_messages_eus/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/build.make learning_service/CMakeFiles/learning_service_generate_messages_eus.dir/build
-.PHONY : learning_service_generate_messages_eus/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/learning_service_gencpp.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_gencpp.dir/rule
-.PHONY : learning_service/CMakeFiles/learning_service_gencpp.dir/rule
-
-# Convenience name for target.
-learning_service_gencpp: learning_service/CMakeFiles/learning_service_gencpp.dir/rule
-
-.PHONY : learning_service_gencpp
-
-# fast build rule for target.
-learning_service_gencpp/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_gencpp.dir/build.make learning_service/CMakeFiles/learning_service_gencpp.dir/build
-.PHONY : learning_service_gencpp/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/rule
-.PHONY : learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/rule
-
-# Convenience name for target.
-_learning_service_generate_messages_check_deps_TwoInts: learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/rule
-
-.PHONY : _learning_service_generate_messages_check_deps_TwoInts
-
-# fast build rule for target.
-_learning_service_generate_messages_check_deps_TwoInts/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/build.make learning_service/CMakeFiles/_learning_service_generate_messages_check_deps_TwoInts.dir/build
-.PHONY : _learning_service_generate_messages_check_deps_TwoInts/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : learning_service/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_py: learning_service/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-.PHONY : roscpp_generate_messages_py
-
-# fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/roscpp_generate_messages_py.dir/build.make learning_service/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/rule
-.PHONY : learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-learning_service_generate_messages_nodejs: learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/rule
-
-.PHONY : learning_service_generate_messages_nodejs
-
-# fast build rule for target.
-learning_service_generate_messages_nodejs/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/build.make learning_service/CMakeFiles/learning_service_generate_messages_nodejs.dir/build
-.PHONY : learning_service_generate_messages_nodejs/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : learning_service/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: learning_service/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/roscpp_generate_messages_eus.dir/build.make learning_service/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
+learning_service_genpy/fast:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_genpy.dir/build.make learning_service/CMakeFiles/learning_service_genpy.dir/build
+.PHONY : learning_service_genpy/fast
 
 # Convenience name for target.
 learning_service/CMakeFiles/learning_service_gennodejs.dir/rule:
@@ -363,19 +348,19 @@ learning_service_gennodejs/fast:
 .PHONY : learning_service_gennodejs/fast
 
 # Convenience name for target.
-learning_service/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : learning_service/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+learning_service/CMakeFiles/client_node.dir/rule:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/client_node.dir/rule
+.PHONY : learning_service/CMakeFiles/client_node.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_lisp: learning_service/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+client_node: learning_service/CMakeFiles/client_node.dir/rule
 
-.PHONY : roscpp_generate_messages_lisp
+.PHONY : client_node
 
 # fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make learning_service/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
+client_node/fast:
+	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/client_node.dir/build.make learning_service/CMakeFiles/client_node.dir/build
+.PHONY : client_node/fast
 
 # Convenience name for target.
 learning_service/CMakeFiles/service_node.dir/rule:
@@ -391,216 +376,6 @@ service_node: learning_service/CMakeFiles/service_node.dir/rule
 service_node/fast:
 	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/service_node.dir/build.make learning_service/CMakeFiles/service_node.dir/build
 .PHONY : service_node/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : learning_service/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: learning_service/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make learning_service/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : learning_service/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: learning_service/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make learning_service/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : learning_service/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: learning_service/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make learning_service/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : learning_service/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: learning_service/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make learning_service/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : learning_service/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: learning_service/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make learning_service/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/learning_service_generate_messages.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_generate_messages.dir/rule
-.PHONY : learning_service/CMakeFiles/learning_service_generate_messages.dir/rule
-
-# Convenience name for target.
-learning_service_generate_messages: learning_service/CMakeFiles/learning_service_generate_messages.dir/rule
-
-.PHONY : learning_service_generate_messages
-
-# fast build rule for target.
-learning_service_generate_messages/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_generate_messages.dir/build.make learning_service/CMakeFiles/learning_service_generate_messages.dir/build
-.PHONY : learning_service_generate_messages/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : learning_service/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: learning_service/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make learning_service/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/rule
-.PHONY : learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-learning_service_generate_messages_cpp: learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/rule
-
-.PHONY : learning_service_generate_messages_cpp
-
-# fast build rule for target.
-learning_service_generate_messages_cpp/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/build.make learning_service/CMakeFiles/learning_service_generate_messages_cpp.dir/build
-.PHONY : learning_service_generate_messages_cpp/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : learning_service/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: learning_service/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make learning_service/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : learning_service/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_py: learning_service/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make learning_service/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : learning_service/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: learning_service/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make learning_service/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : learning_service/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_nodejs: learning_service/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make learning_service/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : learning_service/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_nodejs: learning_service/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make learning_service/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-# Convenience name for target.
-learning_service/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 learning_service/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : learning_service/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: learning_service/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /Users/bingo/swork/ros_project/catkin_ws/build && $(MAKE) -f learning_service/CMakeFiles/std_msgs_generate_messages_py.dir/build.make learning_service/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
 
 src/client.o: src/client.cpp.o
 
@@ -662,42 +437,27 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... client_node"
-	@echo "... install/strip"
-	@echo "... learning_service_genpy"
+	@echo "... learning_service_generate_messages_eus"
+	@echo "... learning_service_geneus"
+	@echo "... learning_service_generate_messages_lisp"
+	@echo "... learning_service_gencpp"
+	@echo "... learning_service_generate_messages_cpp"
+	@echo "... learning_service_generate_messages"
+	@echo "... list_install_components"
+	@echo "... _learning_service_generate_messages_check_deps_TwoInts"
+	@echo "... learning_service_generate_messages_nodejs"
 	@echo "... learning_service_generate_messages_py"
 	@echo "... install/local"
 	@echo "... learning_service_genlisp"
-	@echo "... learning_service_generate_messages_lisp"
-	@echo "... learning_service_geneus"
-	@echo "... learning_service_generate_messages_eus"
-	@echo "... learning_service_gencpp"
-	@echo "... list_install_components"
-	@echo "... _learning_service_generate_messages_check_deps_TwoInts"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... learning_service_generate_messages_nodejs"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... edit_cache"
+	@echo "... install/strip"
+	@echo "... learning_service_genpy"
 	@echo "... learning_service_gennodejs"
-	@echo "... roscpp_generate_messages_lisp"
+	@echo "... edit_cache"
+	@echo "... client_node"
 	@echo "... service_node"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... install"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... learning_service_generate_messages"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... learning_service_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... std_msgs_generate_messages_py"
+	@echo "... test"
 	@echo "... src/client.o"
 	@echo "... src/client.i"
 	@echo "... src/client.s"
